@@ -74,13 +74,13 @@ document.getElementById("fetchData").addEventListener("click", async function ()
 
         // Display manual input results
         document.getElementById("manualTaxOutput").innerHTML = `
-            <strong>Assessed Property Value:</strong> $${assessedValue.toLocaleString()} <br>
-            <strong>Exemption Amount:</strong> $${exemptionValue.toLocaleString()} <br>
-            <strong>Taxable Value:</strong> $${taxableValue.toLocaleString()} 
+            <strong>Assessed Property Value:</strong> $${assessedValue.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })} <br>
+            <strong>Exemption Amount:</strong> $${exemptionValue.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })} <br>
+            <strong>Taxable Value:</strong> $${taxableValue.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })} 
         `;
 
         document.getElementById("taxableOutput").innerHTML = `
-            <strong>PD Headquarters' Share of Property Tax:</strong> $${parseFloat(projectTaxAmount).toLocaleString()}
+            <strong>PD Headquarters' Share of Property Tax:</strong> $${parseFloat(projectTaxAmount).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })} per year
         `;
 
         document.getElementById("parcelID").value = "";
@@ -122,7 +122,7 @@ document.getElementById("fetchData").addEventListener("click", async function ()
 
 // Separate Function for API Fetch
 async function fetchPropertyData(parcelID) {
-    let apiUrl = `https://services3.arcgis.com/icrWMv7eBkctFu1f/arcgis/rest/services/ParcelHosted/FeatureServer/0/query?where=ID='${parcelID}'&outFields=ID,FULLADDRESS,ASSD,TXBL,EXEMPTIONS,HOMESTEAD,HYPERLINK&outSR=4326&f=json`;
+    let apiUrl = `https://services3.arcgis.com/icrWMv7eBkctFu1f/arcgis/rest/services/ParcelHosted/FeatureServer/0/query?where=ID='${parcelID}'%20and%20MUNICIPALITY='City of North Port'&outFields=ID,FULLADDRESS,ASSD,TXBL,EXEMPTIONS,HOMESTEAD,HYPERLINK&outSR=4326&f=json`;
 
     try {
         let response = await fetch(apiUrl);
@@ -130,7 +130,7 @@ async function fetchPropertyData(parcelID) {
 
         let data = await response.json();
         if (!data.features || data.features.length === 0) {
-            document.getElementById("output").innerText = "No property found. Try manual entry instead.";
+            document.getElementById("output").innerText = "No property found. Try again, or try manually entering your assessed and exemption values instead.";
             return false; // Signal that API did NOT return data
         }
 
@@ -140,14 +140,14 @@ async function fetchPropertyData(parcelID) {
         document.getElementById("output").innerHTML = `
             <strong>Property ID:</strong> ${property.ID} <br>
             <strong>Address:</strong> ${property.FULLADDRESS} <br>
-            <strong>Assessed Value:</strong> $${property.ASSD?.toLocaleString() || "N/A"} <br>
-            <strong>Taxable Value:</strong> $${taxableValue.toLocaleString()} <br>
+            <strong>Assessed Value:</strong> $${property.ASSD?.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 }) || "N/A"} <br>
+            <strong>Taxable Value:</strong> $${taxableValue.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })} <br>
             <a href="${property.HYPERLINK}" target="_blank">View Property Details</a>
         `;
 
         let projectTaxAmount = ((taxableValue * 0.618) / 1000).toFixed(2);
         document.getElementById("taxableOutput").innerHTML = `
-            <strong>PD Headquarters' Share of Property Tax:</strong> $${parseFloat(projectTaxAmount).toLocaleString()}
+            <strong>Estimated PD Headquarters Debt Service Portion:</strong> $${parseFloat(projectTaxAmount).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })} per year
         `;
 
         document.getElementById("parcelID").value = "";
