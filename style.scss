@@ -1,0 +1,115 @@
+// COLORS
+$white: #FFFFFF;
+$black: #000000;
+$headings: #1D1D1F;
+$bodytext: #57575B;
+$orangetheme: #FFB81C;
+$darkbluetheme: #003865;
+$hoverbluetheme: #336084;
+$hoverbrightbluetheme: #009CDE;
+$lightbluetheme: #E5F5FC;
+$backgroundgray: #F7F8F8;
+
+// FONTS
+$headings-font-family: '';
+$fontfamily01: 'Montserrat', sans-serif;
+$fontfamily02: 'lato', sans-serif;
+
+// BACKGROUND POSITION
+$accordion-icon-expand-light: -36px -293px;
+$accordion-icon-collapse-light: 0px -293px;
+$accordion-icon-expand-dark: -196px -293px;
+$accordion-icon-collapse-dark: -160px -293px;
+$dismiss-icon-light: -447px -2px;
+$dismiss-icon-dark: -447px -36px;
+
+
+//SIZE AND FORMATTING
+$footersocialmediaiconwidth: 40px;
+
+// MIXINS
+@mixin general-sprite {
+	background-image: url($template-generalsprite-spritesheetsvg);
+	background-repeat: no-repeat;
+	background-size: $template-generalsprite-spritesheetsize;
+}
+
+body {
+    font-family: $fontfamily01; // Uses Montserrat by default
+    color: $bodytext;
+    background-color: $backgroundgray;
+  }
+  
+  h1, h2, h3 {
+    font-family: $headings-font-family; // Use organization's heading font
+    color: $headings;
+  }
+
+  label.Disclaimer {
+    font-family: $fontfamily01; // Uses Montserrat by default
+    color: $bodytext;
+    background-color: $backgroundgray;
+    color: red;
+    font-weight: bold;
+  }
+  
+  button {
+    background-color: $orangetheme;
+    color: $white;
+    font-family: $fontfamily01;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+  
+    &:hover {
+      background-color: $hoverbluetheme;
+    }
+  }
+  
+  input[type="text"] {
+    font-family: $fontfamily02;
+    padding: 10px;
+    border: 1px solid $darkbluetheme;
+    border-radius: 5px;
+    color: $bodytext;
+    appearance: textfield;
+    -moz-appearance: textfield;
+  
+    &:focus {
+      border-color: $hoverbrightbluetheme;
+      outline: none;
+    }
+  }
+
+  input[type="number"] {
+    font-family: $fontfamily02;
+    padding: 10px;
+    border: 1px solid $darkbluetheme;
+    border-radius: 5px;
+    color: $bodytext;
+    appearance: textfield;
+    -moz-appearance: textfield;
+  
+    &:focus {
+      border-color: $hoverbrightbluetheme;
+      outline: none;
+    }
+  }
+
+  input[type="number"]::-webkit-outer-spin-button,
+    input[type="number"]::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+  
+  p {
+    font-size: 16px;
+    color: $bodytext;
+  }
+  
+  #errorMessage {
+    color: red;
+    font-weight: bold;
+  }
+  

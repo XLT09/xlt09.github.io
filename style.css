@@ -1,0 +1,77 @@
+body {
+  font-family: "Montserrat", sans-serif;
+  color: #57575B;
+  background-color: #F7F8F8;
+}
+
+h1, h2, h3 {
+  font-family: "";
+  color: #1D1D1F;
+}
+
+label.Disclaimer {
+  font-family: "Montserrat", sans-serif;
+  color: #57575B;
+  background-color: #F7F8F8;
+  color: red;
+  font-weight: bold;
+}
+
+button {
+  background-color: #FFB81C;
+  color: #FFFFFF;
+  font-family: "Montserrat", sans-serif;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+button:hover {
+  background-color: #336084;
+}
+
+input[type=text] {
+  font-family: "lato", sans-serif;
+  padding: 10px;
+  border: 1px solid #003865;
+  border-radius: 5px;
+  color: #57575B;
+  -webkit-appearance: textfield;
+          appearance: textfield;
+  -moz-appearance: textfield;
+}
+input[type=text]:focus {
+  border-color: #009CDE;
+  outline: none;
+}
+
+input[type=number] {
+  font-family: "lato", sans-serif;
+  padding: 10px;
+  border: 1px solid #003865;
+  border-radius: 5px;
+  color: #57575B;
+  -webkit-appearance: textfield;
+          appearance: textfield;
+  -moz-appearance: textfield;
+}
+input[type=number]:focus {
+  border-color: #009CDE;
+  outline: none;
+}
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+p {
+  font-size: 16px;
+  color: #57575B;
+}
+
+#errorMessage {
+  color: red;
+  font-weight: bold;
+}/*# sourceMappingURL=style.css.map */
