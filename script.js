@@ -58,14 +58,12 @@ document.getElementById("fetchData").addEventListener("click", async function ()
     }
 
     // Use Manual Inputs If API Failed or Not Used
-    if (!apiSuccess && !isNaN(assessedValue) && !isNaN(exemptionValue)) {
+    if (!apiSuccess && !isNaN(assessedValue)) {
+
+        exemptionValue = isNaN(exemptionValue) ? 0 : exemptionValue;
 
         if (isNaN(assessedValue) || assessedValue <= 0) {
             document.getElementById("output").innerText = "Please enter a valid assessed property value.";
-            return;
-        }
-        if (isNaN(exemptionValue) || exemptionValue < 0) {
-            document.getElementById("output").innerText = "Please enter a valid exemption value.";
             return;
         }
 
@@ -105,12 +103,12 @@ document.getElementById("fetchData").addEventListener("click", async function ()
     }
 
     // Error Message If Incomplete Manual Inputs Were Provided
-    else if (parcelID === "" && (assessedValueInput === "" || exemptionValueInput === "")) {
+    else if (parcelID === "" && assessedValueInput === "" && exemptionValueInput !== "") {
         document.getElementById("output").innerText = "Please enter either a Parcel ID OR Assessed Value & Exemptions.";
         document.getElementById("taxableOutput").innerText = "";
     }
 
-    // Error Message If Incomplete Manual Inputs Were Provided
+    // Error Message If Parcel ID and a Manual Input Were Provided
     else if (parcelID !== "" && (assessedValueInput !== "" || exemptionValueInput !== "")) {
         document.getElementById("output").innerText = "Please enter either a Parcel ID OR Assessed Value & Exemptions.";
         document.getElementById("taxableOutput").innerText = "";
