@@ -25,17 +25,56 @@
         </label>
     <h1>Property Tax Impact Calculator</h1>
     <h3>(assuming $115M General Obligation bond)</h3>
-    <label for="parcelID">Enter Parcel ID (no dashes):</label>
-    <input type="number" id="parcelID" placeholder="ex. 0977001030">
-    <br>
-    <h4>OR</h4>
-    <label for="parcelID">Enter Assessed Property Value:</label>
-    <input type="text" id="assessedValue" placeholder="ex. 250000" min="0">
-    <br>
-    <label for="parcelID">Enter Property Exemption Value:</label>
-    <input type="text" id="exemptionValue" placeholder="ex. 100000" min="0">
-    <br>
-    <button id="fetchData">Calculate Tax Impact</button>
+    
+    <!-- <div class="row">
+        <div class="column left">
+            <label for="parcelID">Enter Street Address:</label>
+        </div>
+        <div class="column right">
+            <input type="text" id="streetAddress" placeholder="ex. 4970 City Hall Blvd">
+        </div>
+      </div>
+
+    <div class="or"><h3>OR</h3></div> -->
+
+    <div class="row">
+        <div class="column left">
+            <label for="parcelID">Enter Parcel ID (no dashes):</label>
+        </div>
+        <div class="column right">
+            <input type="number" id="parcelID" placeholder="ex. 0977001030">
+        </div>
+      </div>
+
+    <div class="or"><h3>OR</h3></div>
+
+      <div class="row">
+        <div class="column left">
+            <label for="parcelID">Enter Assessed Property Value:</label>
+        </div>
+        <div class="column right">
+            <input type="text" id="assessedValue" placeholder="ex. $250,000" min="0">
+        </div>
+      </div>
+
+    <div class="row">
+        <div class="column left">
+            <label for="parcelID">Enter Property Exemption Value:</label>
+        </div>
+        <div class="column right">
+            <input type="text" id="exemptionValue" placeholder="ex. $50,000" min="0">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="column left">
+        </div>
+        <div class="column right">
+            <button id="fetchData">Calculate Tax Impact</button>
+        </div>
+      </div>
+
+    
 
     <p id="output"></p>
     <p id="manualTaxOutput"></p>

@@ -75,3 +75,31 @@ p {
   color: red;
   font-weight: bold;
 }/*# sourceMappingURL=style.css.map */
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.column {
+  flex:none;
+}
+
+.left {
+  text-align: left;
+  font-weight: bold;
+  padding-right: 10px;
+  min-width: 250px;
+}
+
+.right {
+  text-align: left;
+  min-width: 200px;
+}
+
+.or {
+  padding-left: 245px;
+}
