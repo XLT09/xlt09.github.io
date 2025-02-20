@@ -74,7 +74,30 @@ p {
 #errorMessage {
   color: red;
   font-weight: bold;
-}/*# sourceMappingURL=style.css.map */
+}
+
+#addressSuggestions {
+  position: absolute;
+  width: fit-content;
+  background: #fff;
+  border: 1px solid #ccc;
+  max-height: 200px;
+  overflow-y: auto;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: none;
+  z-index: 1000;
+}
+
+#addressSuggestions li {
+  padding: 10px;
+  cursor: pointer;
+}
+
+#addressSuggestions li:hover {
+  background: #f0f0f0;
+}
 
 .row {
   display: flex;
@@ -102,4 +125,4 @@ p {
 
 .or {
   padding-left: 245px;
-}
+}/*# sourceMappingURL=style.css.map */

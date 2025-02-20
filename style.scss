@@ -113,3 +113,25 @@ body {
     font-weight: bold;
   }
   
+  #addressSuggestions {
+    position: absolute;
+    width: 100%;
+    background: #fff;
+    border: 1px solid #ccc;
+    max-height: 200px;
+    overflow-y: auto;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: none; // Hidden by default
+    z-index: 1000;
+}
+
+#addressSuggestions li {
+    padding: 10px;
+    cursor: pointer;
+}
+
+#addressSuggestions li:hover {
+    background: #f0f0f0;
+}
